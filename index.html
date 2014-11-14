@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>L5 SNS</title>
+    <link rel="stylesheet" type="text/css" href="css/mobile.css">
+    <script src="js/w3c.hack.js"></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/msgwin.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+<header></header>
+<ul id="onlines">
+    <li><span>lonphy</span><a data-cmd="video"></a><a data-cmd="audio"></a></li>
+    <li> rdxdjdy</li>
+</ul>
+<section id="mod-login">
+    <form>
+        <input type="text" name="username" maxlength=16 placeholder="username" required>
+        <input type="password" name="password" maxlength=16 placeholder="password" required>
+        <button type="submit">登&nbsp;&nbsp;陆</button>
+    </form>
+</section>
+<section id="video-window">
+    <h4>lonphy</h4>
+
+    <div>
+        <video autoplay></video>
+    </div>
+    <p>
+        <button data-cmd="close">挂断</button>
+        <button data-cmd="accept">接听</button>
+        <button data-cmd="reject">拒绝</button>
+    </p>
+</section>
+</body>
+</html>

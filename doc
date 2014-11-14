@@ -1,0 +1,67 @@
+RTCPeerConnection param1:
+
+/***************************************
+struct RTCIceServer {
+	// stun或者turn的 URI
+    String urls;
+
+    // TURN时会用到的username, 默认为null
+    String username = null;
+
+    // TURN时会用到 类似密码，默认为空
+    String credential;
+};
+
+struct RTCConfiguration {
+    RTCIceServer[] iceServers;
+};
+****************************************************/
+var turn = { urls:"turn:turn.example.org",username: "user", credential:"myPassword"},
+	stun = { urls: "stun:stun1.example.net" }; // 类型为RTCIceServer
+
+var server = {"iceServers":[stun, turn]}; // server类型为RTCConfiguration, 即RTCIceServer数组
+
+
+/*****************************************
+ RTCPeerConnection 构造函数
+ class RTCPeerConnection {
+ 	__constroct(RTCConfiguration, MediaConstraints);
+
+ 	void createOffer(RTCSessionDescriptionCallback, RTCPeerConnectionErrorCallback, MediaConstraints);
+    void createAnswer(RTCSessionDescriptionCallback, RTCPeerConnectionErrorCallback, MediaConstraints);
+    void setLocalDescription(RTCSessionDescription, VoidFunction, RTCPeerConnectionErrorCallback);
+    void setRemoteDescription(RTCSessionDescription, VoidFunction, RTCPeerConnectionErrorCallback);
+    void updateIce(RTCConfiguration, MediaConstraints);
+    void addIceCandidate(RTCIceCandidate, VoidFunction, RTCPeerConnectionErrorCallback);
+    MediaStream[] getLocalStreams();
+    MediaStream[] getRemoteStreams();
+    MediaStream   getStreamById(String);
+    void addStream(MediaStream, MediaConstraints);
+    void removeStream(MediaStream);
+    void close();
+
+    readonly RTCSessionDescription  localDescription;
+    readonly RTCSessionDescription  remoteDescription;
+    readonly RTCSignalingState      signalingState;
+
+    // new : 对象刚刚创建,没有发现网络
+    // gathering(采集) :  ICE引擎正在采集TURN/TRUN信息
+    // complete : ICE引擎已完成信息采集,当添加一个新的TURN时会回到gathering状态
+    readonly iceGatheringState;
+
+
+    readonly RTCIceConnectionState  iceConnectionState;
+
+    // 当iceConnectionState变化时会触发该处理器
+    EventHandler           oniceconnectionstatechange;
+
+    EventHandler           onnegotiationneeded;
+    EventHandler           onicecandidate;
+    EventHandler           onsignalingstatechange;
+    EventHandler           onaddstream;
+    EventHandler           onremovestream;
+ }
+
+ ******************************************/
+ var pc = new  RTCPeerConnection(server, null);
+

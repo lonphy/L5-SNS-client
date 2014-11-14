@@ -1,0 +1,201 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: kimberle;
+    src: url('kimbalt_.ttf') format("truetype");
+    font-weight: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    zoom: 1;
+    outline: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%
+}
+
+body {
+    font-family: kimberle, monospace;
+    font-size: 1em;
+    color: #666;
+    line-height: 1.2em;
+    -webkit-user-select: none;
+}
+
+input, button, textarea {
+    border-radius: 3pt;
+    padding: 2pt;
+    border: 1pt solid rgb(83, 156, 217);
+    transition: box-shadow 0.30s ease-in-out;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border: #87C6F9 1pt solid;
+    box-shadow: 0 0 8pt rgba(103, 166, 217, 1);
+}
+
+/************************ 登陆界面 *****************************/
+#mod-login {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: url(../images/bg-mask.png);
+    position: fixed;
+    z-index: 999;
+}
+
+#mod-login form {
+    position: fixed;
+    top: 50%;
+    margin-left: -92pt;
+    margin-top: -45pt;
+    left: 50%;
+    width: 184pt;
+    height: 90pt;
+    line-height: 26pt
+}
+
+#mod-login form input {
+    width: 100%;
+    height: 26pt;
+    margin-bottom: 10pt;
+    padding-left: 18pt;
+    color: #fafafa;
+    background: rgba(0, 0, 0, .3) url(../images/login-sprite.png) no-repeat 3pt 6pt
+}
+
+#mod-login form input[type=password] {
+    background-position: 3pt -19pt
+}
+
+#mod-login form button {
+    width: 100%;
+    height: 24pt;
+    color: #fafafa;
+    text-shadow: 0 0 3pt rgba(103, 166, 217, .8);
+    background: rgba(0, 0, 0, .1)
+}
+
+/******************* 主界面 ******************************************/
+header {
+    height: 30pt;
+    line-height: 30pt;
+    background: url(../images/bg-mask.png);
+    color: #fff;
+    text-indent: 2em;
+    box-shadow: 0 0 5pt rgb(51, 51, 51);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+#onlines {
+    display: block;
+    width: 100%;
+    margin-top: 30pt;
+    height: -webkit-calc(100% - 30pt);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#onlines li {
+    height: 28pt;
+    line-height: 28pt;
+    text-indent: 1.5em;
+    border-top: dashed 1pt #ddd;
+    display: flex;
+}
+
+#onlines li span {
+    flex: 1;
+}
+
+#onlines li a {
+    width: 32pt;
+    height: 28pt;
+    margin-right: 3pt;
+    background-color: rgba(0, 0, 0, .1);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#onlines li a[data-cmd=video] {
+    background-image: url(../images/video.svg);
+}
+
+#onlines li a[data-cmd=audio] {
+    background-image: url(../images/audio.svg);
+}
+
+/************************* 聊天窗口界面 ***************************************/
+#video-window {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ddd;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10pt;
+    box-sizing: border-box;
+    display: none;
+}
+
+#video-window h4 {
+    height: 32pt;
+    line-height: 32pt;
+    color: #f5f5f5;
+    background: url(../images/bg-mask.png);
+    box-shadow: 0 0 5pt rgb(51, 51, 51);
+    font-weight: normal;
+    text-align: center;
+}
+
+#video-window p {
+    margin: 0 10pt;
+    height: 40pt;
+    display: flex;
+}
+
+#video-window p button {
+    height: 40pt;
+    flex: 1;
+}
+
+#video-window.ask p button[data-cmd=close],
+#video-window.call p button[data-cmd=accept],
+#video-window.call p button[data-cmd=reject] {
+    display: none;
+}
+
+#video-window div {
+    margin: 10pt;
+    flex: 1;
+    background: #000 url(../images/video.big.svg) no-repeat center;
+    background-size: 90%;
+    border: solid 8pt #fff;
+    box-shadow: 0 0 5pt rgb(51, 51, 51);
+    border-radius: 3pt;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#video-window div video {
+    flex: 1;
+    height: 100%;
+}
+
+audio {
+    display: none;
+}

@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# H5 缓存文件
+#version 1
+CACHE:
+/rtc/images/audio.svg
+/rtc/images/video.svg
+/rtc/images/video.big.svg
+/rtc/images/login-sprite.png
+/rtc/images/bg-mask.png
+/rtc/css/kimbalt_.ttf
+/rtc/js/w3c.hack.js
+NETWORK:
+*
