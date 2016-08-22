@@ -1,10 +1,12 @@
 #L5 SNS client
 
-# 兼容性： 由于Websocket , WebRtc等兼容性问题，暂时只支持webkit
+1. **兼容性**  
+	由于`Websocket` , `WebRtc`等兼容性问题，暂时只支持webkit
 
-# 功能：简单视频、语音通话
+2. **功能**  
+	简单视频、语音通话
 
-# 简单描述： 使用HTML5 websocket 传输信令， WebRTC 点对点通信， 模拟电话，3G电话
-# 服务端可参考：http://git.oschina.net/lonphy/php-rtc-singling-server 
-
-# ./doc 下是个人收集的关于webrtc的一些接口
+3. **工作流程**  
+	使用HTML5 `WebSocket`传输信令，`WebRTC`点对点通信， 模拟电话，3G电话
+4. **对应的服务端**  
+	* PHP版 https://github.com/lonphy/L5-SNS-server-php  
